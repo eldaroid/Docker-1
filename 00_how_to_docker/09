@@ -1,0 +1,13 @@
+docker run -ti --rm debian
+
+apt-get update
+apt-get upgrade -y
+# for vim 
+apt-get install vim
+
+# gcc
+apt install build-essential
+apt-get install manpages-dev
+# git
+apt-get install git
+# -y yes if it will request

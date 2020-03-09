@@ -1,0 +1,4 @@
+docker run -d -p 8081:80 --link spawning-pool:db --name roach-warden phpmyadmin/phpmyadmin
+
+#// then write docker-machine ip Char, output is 192.168.99.101
+#// and in brawser write 192.168.99.101:8081

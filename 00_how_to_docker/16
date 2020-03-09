@@ -1,0 +1,3 @@
+docker logs -f spawning-pool
+
+# The -f or --follow option will show live log output

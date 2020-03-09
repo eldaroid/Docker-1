@@ -1,0 +1,10 @@
+docker inspect -f '{{.NetworkSettings.IPAddress}}' overlord
+
+or
+
+docker ps
+docker inspect <container id> | grep '"IPAddress":'
+docker inspect <container id> | grep \"IPAddress\"
+docker inspect <container id> | grep "\"IPAddress\""
+
+#// -f Format the output using the given Go template.
