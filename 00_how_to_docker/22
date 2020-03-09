@@ -1,0 +1,11 @@
+docker swarm join-token worker -q > .worker_token
+
+# только с управляющего роя можно запустить эту команду, поэтому нужно обязательно быть там! Внизу написано как это сделать
+
+eval $(docker-machine env Aiur)
+docker swarm join --token $(cat .worker_token) $(docker-machine ip Char):2377
+
+
+# если написат docker-machine ls там где будет * возле АКТИВА, то это означает, что та докер машина и активна, чтобы это изменить
+# заходим на этот сайт https://stackoverflow.com/questions/33211767/how-is-a-docker-machine-marked-as-active
+# либо просто заноов напистаь eval $(docker-machine env Char)
