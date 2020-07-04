@@ -27,3 +27,4 @@ ENTRYPOINT sh ts3server_minimal_runscript.sh
 
 #docker build -t ts3-image . - Чтоб простроить
 #docker run -it --rm -p 9987:9987/udp -p 10011:10011 -p 30033:30033 ts3-image - Чтоб запустить
+#log on with (docker-machine ip Char):9987
