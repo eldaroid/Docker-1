@@ -8,6 +8,6 @@ RUN wget https://launcher.mojang.com/mc/game/1.13/server/d0caafb8438ebd206f99930
 
 RUN echo 'eula=true' > eula.txt
 
-EXPOSE 25565
+EXPOSE 25564
 
-ENTRYPOINT java -Xmx1024M -Xms1024M -jar server.jar
+ENTRYPOINT java -Xmx1024M -Xms1024M -jar server.jar && /bin/bash 
