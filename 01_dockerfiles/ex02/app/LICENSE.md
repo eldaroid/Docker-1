@@ -25,9 +25,9 @@ THE SOFTWARE.
 ```
 
 ```
-THE BEERWARE LICENSE (Revision 42)
+THE LICENSE (Revision 42)
 
-Michael Hartl wrote this code. As long as you retain this notice you can do
+Fgracefo wrote this code. As long as you retain this notice you can do
 whatever you want with this stuff. If we meet some day, and you think this
 stuff is worth it, you can buy me a beer in return.
 ```
