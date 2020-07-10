@@ -3,3 +3,7 @@ docker service create -d --network overmind --name engineering-bay --replicas 2 
 docker inspect engineering-bay
 
 # https://docs.docker.com/engine/swarm/services/
+# до этого мы видели командой docker service ls, Что был
+# один таск, теперь мы зддесь создаем их 2 повторяющихся друг с другом
+# одно будет на Чаре другое на Aiur
+# вот такое задание будет: 42school/engineering-bay

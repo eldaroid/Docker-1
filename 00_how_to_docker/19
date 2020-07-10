@@ -1,10 +1,15 @@
-docker run -d -it --name Abathur -p 3000:3000 -v  ~/:/root python:2-slim
-docker exec Abathur pip install Flask
-echo 'from flask import Flask\napp = Flask(__name__)\n@app.route("/")\ndef hello_world():\n\treturn "<h1>Hello, World!</h1>"' > ~/app.py && chmod 777 ~/app.py
-export FLASK_APP=hello.py
-docker exec -e FLASK_APP=/root/app.py Abathur flask run --host=0.0.0.0 --port 3000
+docker container run --name Abathur -dit -v $HOME:/root -p 3000:3000 --expose 3000 python:3-slim &&\
+docker container exec Abathur pip install Flask &&\
+docker container exec Abathur sh -c "echo 'from flask import Flask\napp = Flask(__name__)\n@app.route(\"/\")\ndef hello_world():\n\treturn \"<h1>Hello World</h1>\"' > /root/app.py" &&\
+docker container exec -d -e FLASK_APP=/root/app.py Abathur flask run --host=0.0.0.0 --port 3000
 
 curl $(docker-machine ip Char):3000
 
 # https://docs.docker.com/engine/reference/commandline/exec/
 # https://flask.palletsprojects.com/en/1.1.x/quickstart/
+# --host=0.0.0.0 - мы просто тем самым говорим, что он должен показывать этот web сайт вне зависимости с какого ip адресса происходит запрос
+# Если мы 0 0 0 0 хост не пропишем, то он будет пускать только с локального хоста.
+# То есть этот параметр предоставляет доступ всем
+# Flask - система разработок сайт с помощью Pethon. Framework с помощью которого можно создавать сайты
+# (docker-machine ip Char):3000 - в браузере
+# Есть тьюторилы онлайн как использовать фласк

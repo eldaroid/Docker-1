@@ -3,9 +3,9 @@ docker run -d --name lair -p 8080:80 --link spawning-pool:mysql wordpress
 # docker run -d --name lair -p (<port_on_host_machine>:<port_inside_container>) --link spawning-pool:mysql wordpress
 
 # --link Links allow containers to discover each other and securely transfer information 
-about one container to another container. When you set up a link, you create a conduit between 
-a source container and a recipient container. The recipient can then access select data about 
-the source. To create a link, you use the --link flag.
+# about one container to another container. When you set up a link, you create a conduit between 
+# a source container and a recipient container. The recipient can then access select data about 
+# the source. To create a link, you use the --link flag.
 
 #// then write docker-machine ip Char, output is 192.168.99.101
 #// and in brawser write 192.168.99.101:8080
@@ -14,3 +14,6 @@ the source. To create a link, you use the --link flag.
 
 # stepik docker run -d -p 5000:80 --name stepik parseq/stepik-ports-docker
 # connection with http://192.168.99.101:5000
+
+# Проверка:
+# --link показывает чтобы этот контейнер взаимодействовал с другим. Я хочу чтобы мой контейнер напрямую общался с контейнером, который называется spawning pool

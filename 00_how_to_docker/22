@@ -6,6 +6,16 @@ eval $(docker-machine env Aiur)
 docker swarm join --token $(cat .worker_token) $(docker-machine ip Char):2377
 
 
-# если написат docker-machine ls там где будет * возле АКТИВА, то это означает, что та докер машина и активна, чтобы это изменить
+# если написать docker-machine ls там где будет * возле АКТИВА, то это означает, что та докер машина и активна, чтобы это изменить
 # заходим на этот сайт https://stackoverflow.com/questions/33211767/how-is-a-docker-machine-marked-as-active
 # либо просто заноов напистаь eval $(docker-machine env Char)
+
+
+# Либо самое лучшее решение: 
+# Создаем окно терминала новое, там прописываем eval $(docker-machine env Aiur)
+# затем, прописываем следующую команду в терминале с Char'ом (eval $(docker-machine env Aiur)):
+docker swarm join-token worker
+# Скопировать команду и вставить в терминале с Aiur
+
+# Првоеряем все либо правильно правильн осделано
+docker node ls

@@ -1,1 +1,6 @@
-docker rmi $(docker images -a -q)
+# docker rmi $(docker images -a -q)
+
+# or 
+
+docker image rm -f $(docker image ls -aq)
+ 

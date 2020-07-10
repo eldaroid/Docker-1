@@ -1,4 +1,15 @@
-docker run -d -p 8081:80 --link spawning-pool:db --name roach-warden phpmyadmin/phpmyadmin
+docker container run -d -p 8081:80 --link spawning-pool:db --name roach-warden  -e MYSQL_ROOT_PASSWORD=Kerrigan phpmyadmin/phpmyadmin
 
+# --link
 #// then write docker-machine ip Char, output is 192.168.99.101
 #// and in brawser write 192.168.99.101:8081
+
+# Проверка:
+# --link показывает чтобы этот контейнер взаимодействовал с другим. Я хочу чтобы мой контейнер напрямую общался с контейнером, который называется spawning pool
+# Это нужно для того, чтобы визуально управлять базой данных. PHP ADMIN позволяет визуально взаимодействовать с БД
+# docker-machine ip Char:8081 в Браузере
+# login: root
+# Kerrigan 
+# в самом низу будет БД zerlings - которую мы как раз-таки создали
+# -
+

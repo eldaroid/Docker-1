@@ -7,4 +7,6 @@ docker inspect <container id> | grep '"IPAddress":'
 docker inspect <container id> | grep \"IPAddress\"
 docker inspect <container id> | grep "\"IPAddress\""
 
-#// -f Format the output using the given Go template.
+#// -f Format the output using the given Go template. 
+# -f '{{.NetworkSettings.IPAddress}}' получается смотрит на метаинформацию overlord.
+# С помощью f флага ты можешь указывать специальные параметры

@@ -1,8 +1,25 @@
-docker run -d --name spawning-pool --restart=on-failure:10 -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings -v hatchery:/var/lib/mysql mysql:8.0 --default-authentication-plugin=mysql_native_password
-
+# docker run -d --name spawning-pool --restart=on-failure:10 -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings -v hatchery:/var/lib/mysql mysql:8.0 --default-authentication-plugin=mysql_native_password
 #// -e, --env list — Set environment variables
 #// amount of restarting is 5 on-failure:5
+
+# more correct
+
+docker container run -d -v hatchery:/var/lib/mysql --restart=unless-stopped --name spawning-pool -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings mysql:5.7
+
+#--restart=unless-stopped - столкнется с любыми ошибками - перезапустится. Если контейнер полетит, то он сам знает что ему нужно перезапуститься
+
+
+
 #// https://www.ionos.com/community/server-cloud-infrastructure/docker/understanding-and-managing-docker-container-volumes/
 #// https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661
 #// -v hatchery:/var/lib/mysql wil be internal in dopcker container in address /var/lib/mysql
 #// MySQL 8 changed the password authentication method. You're looking for the mysql_native_password plugin https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html
+
+# проверка
+# docker inspect spawning-pool - вся мета инфа о контейнере, переменные окружения и тд. Там можно найти где установлены Volume
+# docker container exec -it spawning-pool bash
+# docker exec -it spawning-pool mysql -uroot -p
+# Вводим пароль Kerrigan
+# show databases; - ';' потому что такой синтакс у сикьуала (система работы с базой данных, специальный язык). 
+# В конце можно увидеть zerlings - показывает что она имеется
+#

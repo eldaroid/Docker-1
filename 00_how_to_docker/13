@@ -1,3 +1,4 @@
-docker inspect -f "{{ .Config.Env }}" spawning-pool
+docker container inspect -f "{{.Config.Env}}" spawning-pool
 
 #// -f format of output
+# Все переменный окружения
