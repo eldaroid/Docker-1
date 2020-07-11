@@ -52,3 +52,4 @@ ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && \
 
 # how to clone with https: git config --global http.sslVerify false
 #                          git clone https://192.168.99.100:8443/root/test_project.git
+
