@@ -1,5 +1,11 @@
 FROM ubuntu:18.04
 
+# openssh-server - openssh-server
+# tzdata - https://habr.com/ru/post/130401/
+# postfix - https://ru.wikipedia.org/wiki/Postfix#:~:text=Postfix%20%E2%80%94%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B8%20%D0%BF%D0%BE%D1%87%D1%82%D1%8B%20(MTA,%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%2C%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%B2%D0%B0%D0%BB%D1%81%D1%8F%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%82%D0%B8%D0%B2%D0%B0%20Sendmail.
+# ca-certificates - https://en.wikipedia.org/wiki/Certificate_authority
+# apt -y clean - https://ru.stackoverflow.com/questions/638/%D0%9E%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0-%D0%BA%D1%8D%D1%88%D0%B0-apt-get
+
 RUN apt -y update && \
 	apt -y upgrade && \
 	apt -y install curl \
@@ -8,8 +14,6 @@ RUN apt -y update && \
 		postfix \
 		ca-certificates && \
 	apt -y clean
-
-ENV TERM xterm
 
 RUN curl --fail \
 		https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | \
@@ -32,6 +36,8 @@ RUN mkdir -p /etc/gitlab/ssl && \
 	sed -i "s/# nginx\['redirect_http_to_https'\] = false/nginx\['redirect_http_to_https'\] = true/" /etc/gitlab/gitlab.rb
 
 RUN mkdir -p /run/sshd
+
+# https://docs.gitlab.com/omnibus/maintenance/
 
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && \
 				/usr/sbin/sshd && \
