@@ -1,1 +1,3 @@
-docker-machine ip Char
+	# Чтобы узнать IP адрусс машины нужно использовать команду :
+	#	docker-machine ip "name" || в нашем случае
+			docker-machine ip Char

@@ -1,1 +1,13 @@
-eval $(docker-machine env Char)
+	# В этом задании нам требуется запустить кхм... "режим цитаты" настроить
+	# нашу машину так, чтобы команда docker ps работала без ошибок. По сути
+	# запустить нашу машину =) ну-с, а давайте посмотрим вообще на настройки
+	# Пишем команду "docker-machine env Char"
+	# и такс - такс, что мы видим ?!
+	# " export DOCKER_TLS_VERIFY="1"
+	# 	export DOCKER_HOST="tcp://192.168.99.100:2376"
+	# 	export DOCKER_CERT_PATH="/Users/dsandshr/.docker/machine/machines/Char"
+	# 	export DOCKER_MACHINE_NAME="Char"
+	# 	# Run this command to configure your shell:
+	# 	# eval $(docker-machine env Char) "
+	# Ну собственно мы и видим ответ на нашу задачу )
+		eval $(docker-machine env Char)

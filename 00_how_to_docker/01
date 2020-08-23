@@ -1,7 +1,14 @@
-docker-machine create --driver virtualbox Char
+	# Для того чтобы создать виртуальную машину используюя драйвер VirtualBox
+	# Нужно использовать команду :
+		# docker-machine create --driver "нужный драйвер" "имя машины"
+		# таким образом становится понятно, что нужно использовать по заданию :
+			docker-machine create --driver virtualbox Char
+		# Чтобы проверить получилось ли у нас данное деяние, надо проверить
+		# командой : docker-machine ls
+
+docker-machine create --driver virtualbox --virtualbox-cpu-count "2" --virtualbox-memory "2048" Char
 
 # check result docker-machine ls
-# docker-machine create --driver virtualbox Char
 # docker-machine start Char
 # docker-machine env Char
 # eval $(docker-machine env Char)
