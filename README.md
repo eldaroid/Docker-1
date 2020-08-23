@@ -1,9 +1,15 @@
 # Docker
-21 Project Docker // DevOps
+
+## Обзор проекта
 
 ![alt text](https://github.com/eldaroid/pictures/blob/master/Docker/Docker-1.png)
-* PART 00
+
+docker 'из 42 SV, который знакомит вас с Docker и его основными функциями. Установить докер, докер-машину и виртуальный бокс; Выполните команды докера; Создавайте собственные контейнеры для собственных приложений; и больше...
+
 ![alt text](https://github.com/eldaroid/pictures/blob/master/Docker/score.png)
+
+* PART 00
+
 01 \
 https://docs.docker.com/machine/reference/create/
 
